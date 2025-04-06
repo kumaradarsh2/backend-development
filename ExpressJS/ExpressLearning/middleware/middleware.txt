@@ -1,0 +1,7 @@
+Middleware in Express.js is a function that runs between the request
+coming in and the response going on.
+
+It can modify the request and response objects before they reach our route handler.
+
+# What does body-parser do?
+By default, Express doesn't parse the request body

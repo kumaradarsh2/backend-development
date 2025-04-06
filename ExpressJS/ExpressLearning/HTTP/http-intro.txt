@@ -1,0 +1,37 @@
+What is an HTTP?
+HTTP stands for Hyper Text Transfer Protocol, basically a language that allows computers to talk to each other across the internet.
+
+We as humans, when we want to transfer our thoughts between each other, we have this
+thing called language, or we could call it "Thought Transfer Protocol".
+We make these sounds across the air and we allow each other to understand our own 
+thoughts.
+
+Similarly when computers want to talk to each other across the Internet, they need 
+Hyper Text Transfer Protocol.
+
+# When we make our HTTP request, there are five main words:
+GET, POST, PUT, PATCH, and DELETE
+
+GET: 
+    We use GET when we want to request a resource from the server. This could be a HTML 
+    Website, it could be some piece of text, it could be a piece of data from the 
+    database or the server.
+
+    We are getting something when we make our HTTP request using the GET keyword.
+
+
+POST:
+    In POST request, we are sending a resource to the server. 
+    This could be a piece of information like we have a form to sign up to our website.
+    The email and password is going to be sent to our server when they click the sign-up button.
+    And this is going to be done using a POST request.
+
+PUT and PATCH are similar as both of them are update methods. However, they are bit different.
+
+A PUT request is when we want to Replace a resource with whatever we are sending. Basically we want to update something by replacing it completely.
+
+PATCH is little bit different and similar to English word, as in patch-up the resource,
+only the required parts (to be updated).
+
+DELETE:
+    It just deletes resources, either from the server or from the database.

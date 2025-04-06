@@ -1,0 +1,4 @@
+Node module system allows us to create multiple reusable pieces of modules.
+
+Very Important to Note that:
+- And each file in a node.js will be treated as a seperate module

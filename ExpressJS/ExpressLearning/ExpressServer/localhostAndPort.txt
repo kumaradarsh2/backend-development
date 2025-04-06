@@ -1,0 +1,28 @@
+Localhost and Ports Explained:
+
+Localhost:
+    - Localhost is when your computer acts as a local server.
+    - It's used when you want to host your website's backend on your own machine, not on an internet server.
+    - Typing "https://localhost" in the URL accesses your computer's local server.
+
+Ports:
+    - Ports are like numbered "doors" on your computer.
+    - Each port has a unique address.
+    - There are thousands of potential ports.
+    - When setting up a server, you specify the port it listens on (e.g., port 3000).
+    - "localhost:3000" means you're trying to reach the application listening on port 3000.
+
+How Ports Work:
+    - The server application "listens" on a specific port.
+    - Your request to "localhost:port_number" finds the application through that port.
+    - The application responds by sending HTML, CSS, and JavaScript files.
+
+Why Multiple Ports?
+    - Your computer handles various incoming requests from different applications and devices.
+    - Different services (printer, remote control, etc.) use different ports.
+    - Unique port numbers prevent interference between services.
+    - Multiple services can run simultaneously on the same computer.
+
+Checking Active Ports:
+    - Use the following command in your terminal to see which ports are currently listening:
+        - sudo lsof -i -P -n | grep LISTEN

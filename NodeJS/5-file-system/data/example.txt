@@ -1,0 +1,2 @@
+Hello from node.js
+New line added to the file
