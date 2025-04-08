@@ -3,5 +3,17 @@ coming in and the response going on.
 
 It can modify the request and response objects before they reach our route handler.
 
-# What does body-parser do?
-By default, Express doesn't parse the request body
+Let's talk about one common using Middleware, body-parser
+// Checkout out https://www.npmjs.com/package/body-parser for body-parser 
+
+Yet another Middleware is called is Morgon
+
+In terms of functionality we see with Middleware, we've got 
+1. Pre-Processing type (body-parser in this category)
+2. Authentication 
+3. Error-Handeling
+4. Logging Requests
+
+// Different category of Middleware, the logging types
+
+
