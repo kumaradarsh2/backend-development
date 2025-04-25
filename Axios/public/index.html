@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios Title</title>
+    <!-- Script tag loads axios from cdn (so we don't have to install anything) -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Axios is now available in my JS Code like a library -->
+</head>
+<body>
+    <h2>Enter your name:</h2>
+    <input type="text" id="nameInput" placeholder="Your name" />
+    <button id="sendBtn">Send</button>
+
+    <script>
+        // dom finds the button
+        // .addEven... triggers a function which runs when the button is clicked
+        document.getElementById("sendBtn").addEventListener("click", () => {
+            const name = document.getElementById("nameInput").value;
+
+            axios.post("http://localhost:3000/greet", {name: name})
+                .then((response) => {
+                    console.log("Server says:", response.data.message);
+                }).catch((error) => {
+                    console.error("Error:", error.message);
+                });
+        });
+    </script>
+</body>
+</html>
