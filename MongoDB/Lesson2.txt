@@ -1,0 +1,65 @@
+LESSON 2: INSERT & FIND – MongoDB CRUD Basics (Read + Create)
+
+Topics:
+    How to insert documents manually via script (not GUI)
+    How to find documents with filters
+    Use of insertOne(), insertMany(), find(), findOne()
+
+1. insertOne() and insertMany()
+
+    // Switch to your DB (you created `students`)
+    use students;
+
+    // Insert one user
+    db.users.insertOne({
+        name: "Kabir",
+        college: "ABC Institute",
+        age: 20,
+        skills: ["Go", "Node.js"]
+    });
+
+    // Insert many users
+    db.users.insertMany([
+        {
+            name: "Meera",
+            college: "XYZ University",
+            age: 22,
+            skills: ["Python", "SQL"]
+        },
+        {
+            name: "Tanmay",
+            college: "ABC Institute",
+            age: 21,
+            skills: ["C++", "MongoDB"],
+            intern: true
+        }
+    ]);
+
+2. find() and findOne()
+
+    // Find all users
+    db.users.find(); // Cursor returned
+
+    // Prettify the result
+    db.users.find().pretty(); // Better for CLI
+
+    // Find one user (any match)
+    db.users.findOne({ age: 22 });
+
+    // query using filters:
+    // Users from ABC Institute
+    db.users.find({ college: "ABC Institute" });
+
+    // Users who have MongoDB as a skill
+    db.users.find({ skills: "MongoDB" });
+
+    // Users aged more than 20
+    db.users.find({ age: { $gt: 20 } });
+
+Note:
+    MongoDB is case-sensitive
+    $gt, $lt, $in, etc. are query operators
+    You can nest filters: { age: { $gt: 20 }, intern: true }
+
+Note: $regex operator with the ^ anchor is a powerful way to perform prefix-based searches in MongoDB
+eg. db.users.find({ college: { $regex: "^XYZ" } }) to find the users whose college name start with XYZ

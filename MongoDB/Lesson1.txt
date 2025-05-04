@@ -1,0 +1,36 @@
+LESSON 1: MongoDB Basics – Documents, Collections, BSON
+
+Topics:
+
+    What exactly is MongoDB storing?
+    Difference between Document, Collection, and Database
+    JSON vs BSON
+    Quick mental model of NoSQL vs SQL
+
+
+1. MongoDB: MongoDB is a popular open-source NoSQL database that stores data in JSON-like documents, offering flexibility compared to traditional relational databases that use tables.
+
+    Core Structure:
+        SQL Term: Table, Row, Database
+        MongoDB Equivalent: Collection, Document, Database
+
+    Note: MongoDB doesn't force fixed schema (the next documents can have more or fewer fields)
+
+2. JSON vs BSON: 
+    MongoDB stores data in BSON - Binary JSON
+    Why? 
+    - Fast Parsing
+    - Supports additional types like Date, ObjectId, etc.
+
+    eg. 
+        {
+            "_id": ObjectId("654f8c92d3d4a9a5a1a9e12e"),
+            "createdAt": ISODate("2024-05-03T09:00:00Z")
+        }
+
+
+MongoDB is perfect for: 
+- Real-time apps
+- E-commerce
+- Content management
+- Analytics

@@ -1,0 +1,60 @@
+LESSON 3: UPDATE & DELETE — Modifying Data in MongoDB
+
+Topics:
+    updateOne(), updateMany()
+    $set, $inc, $push, $unset
+    deleteOne(), deleteMany()
+    Query + Modify logic
+
+1. Updating Documents
+
+    // Update one user's age
+    db.users.updateOne(
+      { name: "Adarsh" },
+      { $set: { age: 22 } }
+    );
+    // Explanation: Updates the first document where the 'name' field is "Adarsh" by setting the 'age' field to 22.
+
+    // Add a new field "graduated" to all users
+    db.users.updateMany(
+      {},
+      { $set: { graduated: false } }
+    );
+    // Explanation: Updates all documents in the 'users' collection by adding a new field 'graduated' with the value false.
+
+    // Increment age by 1
+    db.users.updateOne(
+      { name: "Meera" },
+      { $inc: { age: 1 } }
+    );
+    // Explanation: Updates the first document where the 'name' field is "Meera" by incrementing the 'age' field by 1.
+
+    // Add a new skill to a user's array
+    db.users.updateOne(
+      { name: "Tanmay" },
+      { $push: { skills: "React" } }
+    );
+    // Explanation: Updates the first document where the 'name' field is "Tanmay" by adding "React" to the 'skills' array.
+
+    // Remove a field
+    db.users.updateOne(
+      { name: "Kabir" },
+      { $unset: { intern: "" } }
+    );
+    // Explanation: Updates the first document where the 'name' field is "Kabir" by removing the 'intern' field. The value associated with $unset doesn't matter.
+
+2. Deleting Documents
+
+    // Delete one specific user
+    db.users.deleteOne({ name: "Riya" });
+    // Explanation: Deletes the first document where the 'name' field is "Riya".
+
+    // Delete all interns
+    db.users.deleteMany({ intern: true });
+    // Explanation: Deletes all documents where the 'intern' field is true.
+
+    // Careful with deleteMany({}) — it wipes the whole collection ⚠️
+    // Explanation: This command will delete all documents within the 'users' collection. Use with extreme caution.
+
+🔍 Quick Tip:
+Always try `db.users.find({ your_filter })` first to preview what’s going to be updated or deleted before running `updateOne`, `updateMany`, `deleteOne`, or `deleteMany`. This helps prevent unintended data loss or modification.
