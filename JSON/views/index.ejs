@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Taco Recipes</title>
+    <link rel="stylesheet" type="text/css" href="/styles/main.css" />
+  </head>
 
-<head>
-  <title>Taco Recipes</title>
-  <link rel="stylesheet" type="text/css" href="/styles/main.css">
-</head>
+  <body>
+    <h1>Taco Town 🌮</h1>
 
-<body>
-  <h1>Taco Town 🌮</h1>
+    <form action="/recipe" method="POST" class="buttons">
+      <button type="submit" value="chicken" name="choice">🍗</button>
+      <button type="submit" value="beef" name="choice">🥩</button>
+      <button type="submit" value="fish" name="choice">🐟</button>
+    </form>
+    <div id="recipeContainer" class="hidden">
+      <% if (!locals.name) { %>
+      <h2>Pick your favourite taco ingredient 👆</h2>
+      <% } else { %>
+      <h2><%= name %></h2>
+      <% } %>
+      <!--
+      {
+        id: '0002',
+        type: 'taco',
+        name: 'Beef Taco',
+        price: 3.49,
+        ingredients: {
+          protein: { name: 'Beef', preparation: 'Seasoned and Grilled' },
+          salsa: { name: 'Salsa Verde', spiciness: 'Hot' },
+          toppings: [ [Object], [Object], [Object] ]
+        }
+      }
+-->
+      <ul id="ingredientsList">
+        <% if (locals.ingredients) { %>
+        <h3>Ingredients:</h3>
+        <li>
+          <%= ingredients.protein.name %>, <%= ingredients.protein.preparation
+          %>
+        </li>
+        <li><%= ingredients.salsa.name %></li>
 
-  <form action="/recipe" method="POST" class="buttons">
-    <button type="submit" value="chicken" name="choice">🍗</button>
-    <button type="submit" value="beef" name="choice">🥩</button>
-    <button type="submit" value="fish" name="choice">🐟</button>
-  </form>
-  <div id="recipeContainer" class="hidden">
+        <% ingredients.toppings.forEach(topping => { %>
+        <li><%=topping["quantity"]%> of <%= topping["name"] %></li>
+        <% }) %> <% } %>
 
-    <!-- If no recipe yet, show: -->
-    <h2>Pick your favourite taco ingredient 👆</h2>
-    <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
-
-    <!-- <h3>Ingredients:</h3>
-    <ul id="ingredientsList">
-      <li>Protein name, protein preparation</li>
-      <li>Salsa name</li>
-      <li>Every other topping</li>
-    </ul> -->
-
-
-
-  </div>
-</body>
-
+      </ul>
+    </div>
+  </body>
 </html>
