@@ -1,0 +1,6 @@
+Data kaha store krenge
+
+# ODM => Object Data Modeling
+mongoose
+
+# Moon Modeler => Data Managing Tool for MongoDB and noSQL
